@@ -5,9 +5,11 @@
   "main": "app.js",
   "scripts": {
     "start": "node ./bin/www",
-    "dcy:dev": "NODE_ENV=development npx functions-framework --target=dcy",
-    "dcy:staging": "NODE_ENV=staging npx functions-framework --target=dcy",
-    "dcy:prod": "NODE_ENV=production npx functions-framework --target=dcy"
+    "dev": "NODE_ENV=development npx functions-framework --target=dcy",
+    "staging": "NODE_ENV=staging npx functions-framework --target=dcy",
+    "prod": "NODE_ENV=production npx functions-framework --target=dcy",
+    "deploy: staging": "NODE_ENV=staging gcloud app deploy",
+    "deploy: prod": "NODE_ENV=production gcloud app deploy"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
