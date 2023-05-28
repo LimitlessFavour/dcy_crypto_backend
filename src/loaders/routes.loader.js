@@ -1,11 +1,12 @@
 /* Routes */
-const authRouter = require('../routes/user.routes');
-const userRouter = require('../routes/wallet.routes');
+const userRouter = require('../routes/user.routes');
+const walletRouter = require('../routes/wallet.routes');
+
 
 class RoutesLoader {
     static initRoutes (app, version) {
-        app.use(`/api/${version}/user`, authRouter);
-        app.use(`/api/${version}/wallet`, userRouter);
+        app.use(`/api/${version}/user`, userRouter);
+        app.use(`/api/${version}/wallet`, walletRouter);
     }
 }
 

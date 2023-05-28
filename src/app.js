@@ -1,11 +1,6 @@
 const { ExpressLoader } = require('./loaders/express.loader');
 const { RoutesLoader } = require('./loaders/routes.loader');
-var dotenv = require('dotenv');
-
-dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 const { Config } = require('./configs/config');
-
-var logger = require('morgan');
 
 const app = ExpressLoader.init();
 
@@ -19,9 +14,8 @@ app.listen(port, () => console.log(`
   ==================================
 `));
 
-app.use(logger('dev'));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+// app.use('/', indexRouter);
+// app.use('/users', usersRouter);
 
 module.exports = app;

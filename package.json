@@ -2,11 +2,11 @@
   "name": "dcy-crypto-backend",
   "version": "0.0.0",
   "private": true,
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
     "start": "node -r dotenv-flow/config src/app.js -- --dotenv-flow-path=envs",
-    "dev": "cross-env NODE_ENV=development nodemon src/app.js",
-    "staging": "cross-env NODE_ENV=staging nodemon src/app.js",
+    "dev": "cross-env NODE_ENV=development DOTENV_FLOW_PATH=envs nodemon -r dotenv-flow/config",
+    "staging": "cross-env NODE_ENV=staging DOTENV_FLOW_PATH=envs nodemon -r dotenv-flow/config",
     "prod": "cross-env NODE_ENV=production npm start",
     "deploy: staging": "NODE_ENV=staging gcloud app deploy",
     "deploy: prod": "NODE_ENV=production gcloud app deploy"
@@ -16,7 +16,7 @@
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "debug": "~2.6.9",
-    "dotenv": "^16.0.3",
+    "dotenv-flow": "^3.2.0",
     "express": "^4.18.2",
     "morgan": "^1.10.0"
   },
