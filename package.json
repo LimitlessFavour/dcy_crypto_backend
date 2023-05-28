@@ -4,17 +4,19 @@
   "private": true,
   "main": "app.js",
   "scripts": {
-    "start": "node ./bin/www",
-    "dev": "NODE_ENV=development npx functions-framework --target=dcy",
-    "staging": "NODE_ENV=staging npx functions-framework --target=dcy",
-    "prod": "NODE_ENV=production npx functions-framework --target=dcy",
+    "start": "node src/app.js",
+    "dev": "NODE_ENV=development nodemon src/app.js",
+    "staging": "NODE_ENV=staging nodemon src/app.js",
+    "prod": "NODE_ENV=production npm start",
     "deploy: staging": "NODE_ENV=staging gcloud app deploy",
     "deploy: prod": "NODE_ENV=production gcloud app deploy"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
+    "express": "^4.18.2",
     "morgan": "^1.10.0"
   },
   "devDependencies": {

@@ -1,17 +1,15 @@
-var express = require('express');
+const { ExpressLoader } = require('./loaders/express.loader');
 var dotenv = require('dotenv');
 
+dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
 const { Config } = require('./configs/config');
 
-// var path = require('path');
-// var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-dotenv.config({ path: `.env.${process.env.NODE_ENV}` });
-var app = express();
+const app = ExpressLoader.init();
 
 const port = Number(Config.PORT);
 app.listen(port, () => console.log(`
