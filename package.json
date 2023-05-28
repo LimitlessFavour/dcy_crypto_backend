@@ -4,16 +4,17 @@
   "private": true,
   "main": "app.js",
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "NODE_ENV=development nodemon src/app.js",
-    "staging": "NODE_ENV=staging nodemon src/app.js",
-    "prod": "NODE_ENV=production npm start",
+    "start": "node -r dotenv-flow/config src/app.js -- --dotenv-flow-path=envs",
+    "dev": "cross-env NODE_ENV=development nodemon src/app.js",
+    "staging": "cross-env NODE_ENV=staging nodemon src/app.js",
+    "prod": "cross-env NODE_ENV=production npm start",
     "deploy: staging": "NODE_ENV=staging gcloud app deploy",
     "deploy: prod": "NODE_ENV=production gcloud app deploy"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
